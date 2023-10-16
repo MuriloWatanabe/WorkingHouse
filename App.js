@@ -2,13 +2,14 @@ import { Fragment } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 
-import Routes from './src/routes';
+import Home from './src/screens/Home'
+import Perfil from './src/screens/Perfil'
 
 export default function App() {
   return (
     <Fragment>
       <StatusBar style="auto" />
-      <Routes />
+      <Perfil />
     </Fragment>
   );
 }

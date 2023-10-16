@@ -1,22 +1,47 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, TextInput, Button, StyleSheet, ScrollView } from "react-native";
 
-import Card from "../../componentes/Card";
+export default function Home({ navigation }) {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
 
-export default function Home( navigation ) {
+  const handleSignUp = () => {
+  };
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.topSection}>
+        <Text>Nome:</Text>
+        <TextInput
+          value={name}
+          onChangeText={setName}
+          style={styles.input}
+        />
+        <Text>Email:</Text>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+        />
+        <Text>Senha:</Text>
+        <TextInput
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={true}
+          style={styles.input}
+        />
+        <Text>Confirmar Senha:</Text>
+        <TextInput
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry={true}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.bottomSection}>
+        <Button title="Cadastrar" onPress={handleSignUp} />
       </View>
     </ScrollView>
   );
@@ -27,7 +52,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
-    flexDirection: "row",
-    flexWrap: 'wrap',  
+    alignItems: "center",
+  },
+  topSection: {
+    width: '80%', 
+  },
+  input: {
+    width: '100%',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 20,
+    marginBottom: 10,
+    paddingLeft: 10,
+  },
+  bottomSection: {
+    width: '80%',
+    marginTop: 20,
+    alignItems: 'center', 
   },
 });

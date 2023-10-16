@@ -1,103 +1,130 @@
 import React from 'react';
-import {
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-} from 'react-native';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import ger from "../icons/gertrudes.png"
 
-export default function Perfil({ navigation }) {
+const Perfil = () => {
   return (
     <ScrollView style={styles.container}>
-      <ScrollView>
+      <View style={styles.header}>
+        <Text style={styles.profileName}>Nome do Perfil</Text>
+        <Text style={styles.profileRating}>Avaliação: 4.5 ⭐</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionHeader}>Serviços Realizados</Text>
+        <Text style={styles.serviceCount}>150 Serviços</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionHeader}>Endereço</Text>
+        <Text style={styles.address}>123 Rua Exemplo, Cidade</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionHeader}>Descrição</Text>
+        <Text style={styles.description}>
+          Descrição do perfil do prestador de serviços. Inclua informações detalhadas sobre as habilidades e experiência.
+        </Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionHeader}>Serviços Oferecidos</Text>
+        <View style={styles.serviceTable}>
+          <View style={styles.serviceRow}>
+            <Text style={styles.serviceName}>Serviço 1</Text>
+            <Text style={styles.servicePrice}>R$50</Text>
+          </View>
+          <View style={styles.serviceRow}>
+            <Text style={styles.serviceName}>Serviço 2</Text>
+            <Text style={styles.servicePrice}>R$75</Text>
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.buttons}>
         <TouchableOpacity
-          style={styles.option}
-          onPress={() => navigation.navigate('Compras')}
+          style={styles.button}
+          onPress={() => {
+          }}
         >
-          <MaterialCommunityIcons name="credit-card" size={35} color="#333" />
-          <ScrollView style={styles.info}>
-            <Text style={styles.title}>Compras</Text>
-            <Text style={styles.description}>Ver minhas compras</Text>
-          </ScrollView>
-          <MaterialIcons name="keyboard-arrow-right" color="#999" size={20} />
-        </TouchableOpacity>
-      </ScrollView>
-
-      <View style={styles.menuAdicional}>
-        <TouchableOpacity style={styles.opcoesAdicionais}>
-          <View style={styles.wrapper}>
-            <MaterialCommunityIcons name="lifebuoy" size={25} color="#CDC" />
-            <Text style={styles.optionName}>Ajuda</Text>
-          </View>
-          <MaterialIcons name="keyboard-arrow-right" color="#999" size={20} />
+          <Text style={styles.buttonText}>Adicionar Imagem</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.opcoesAdicionais}>
-          <View style={styles.wrapper}>
-            <MaterialIcons name="settings" size={25} color="#CDC" />
-            <Text style={styles.optionName}>Configurações</Text>
-          </View>
-          <MaterialIcons name="keyboard-arrow-right" color="#999" size={20} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+          }}
+        >
+          <Text style={styles.buttonText}>Notificação/Mensagem</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    padding: 16,
   },
-  option: {
-    flexDirection: 'row',
+  header: {
     alignItems: 'center',
-    justifyContent: 'space-around',
-    marginTop: 5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    border: 1,
   },
-  info: {
-    marginLeft: 20,
+  profileName: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
-  title: {
-    color: '#333',
+  profileRating: {
+    fontSize: 16,
+  },
+  section: {
+    marginVertical: 20,
+  },
+  sectionHeader: {
     fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  serviceCount: {
+    fontSize: 16,
+  },
+  address: {
+    fontSize: 16,
   },
   description: {
     fontSize: 16,
-    color: '#999',
   },
-  menuAdicional: {
-    marginTop: 30,
+  serviceTable: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    padding: 10,
   },
-
-  opcoesAdicionais: {
+  serviceRow: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 5,
     marginBottom: 5,
-    marginLeft: 0,
-    marginRight: 0,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    border: 1,
   },
-  wrapper: {
+  serviceName: {
+    fontSize: 16,
+  },
+  servicePrice: {
+    fontSize: 16,
+  },
+  buttons: {
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'space-around',
   },
-  optionName: {
-    marginLeft: 25,
-    color: '#ccc',
-    fontSize: 15,
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
+
+export default Perfil;
